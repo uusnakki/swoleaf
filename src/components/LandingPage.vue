@@ -1,45 +1,31 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <div>
-      <PrimeVueButton label="Login" @click="doLogin" />
-    </div>
-    <p>
-      Track those sweet gains
-    </p>
+  <div>
+    <h1>Welcome to Swoleaf</h1>
+    <button @click="startWorkout">Start a workout</button>
+    <button @click="viewStats">Stats</button>
+    <p>{{ quote }}</p>
   </div>
 </template>
 
 <script>
-import { default as PrimeVueButton } from 'primevue/button'
-
 export default {
   name: 'LandingPage',
-  props: {
-    msg: String
+  data() {
+    return {
+      quote: 'Quote of the day'
+    };
   },
-  components: {
-    PrimeVueButton
+  methods: {
+    startWorkout() {
+      this.$router.push('/startworkout');
+    },
+    viewStats() {
+      this.$router.push('/stats');
+    }
+  },
+  mounted() {
+    // Fetch quote from a remote source or use a predefined list
+    this.quote = "Train hard, win easy.";
   }
-}
+};
 </script>
-
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>

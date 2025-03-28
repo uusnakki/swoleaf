@@ -1,17 +1,13 @@
 <template>
-  <img class="logo" lt="Swoleaf logo" src="./assets/logo.png">
-  <LandingPage msg="Swoleaf"/>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import LandingPage from './components/LandingPage.vue'
-
 export default {
-  name: 'App',
-  components: {
-    LandingPage
-  }
-}
+  name: 'App'
+};
 </script>
 
 <style>
