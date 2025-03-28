@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import quotes from '@/utilities/quotes.json'
+
 export default {
   name: 'LandingPage',
   data() {
@@ -25,7 +27,7 @@ export default {
   },
   mounted() {
     // Fetch quote from a remote source or use a predefined list
-    this.quote = "Train hard, win easy.";
+    this.quote = quotes[Math.floor(Math.random() * quotes.length)].quote;
   }
 };
 </script>

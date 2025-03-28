@@ -10,7 +10,15 @@ export const useWorkoutStore = defineStore('workout', {
       this.lifts = lifts;
       this.workout = {};
       lifts.forEach(lift => {
-        this.workout[lift] = { reps: 0, sets: 0, weight: 0 };
+        let defaultWeight = 0;
+        if (lift === 'Deadlift') {
+          defaultWeight = 120;
+        } else if (lift === 'Squat') {
+          defaultWeight = 100;
+        } else if (lift === 'Bench Press') {
+          defaultWeight = 70;
+        }
+        this.workout[lift] = { reps: 5, sets: 5, weight: defaultWeight };
       });
     },
     completeWorkout() {

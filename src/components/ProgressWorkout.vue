@@ -9,6 +9,7 @@
         <label>Weight: <input type="number" v-model="workout[lift].weight"></label>
       </div>
       <button @click="completeWorkout">Complete Workout</button>
+      <button @click="cancelWorkout">Cancel</button>
     </div>
     <div v-else>
       <p>No lifts selected. Please go back and select lifts.</p>
@@ -22,8 +23,14 @@ import { useWorkoutStore } from '../stores/workout';
 
 export default {
   name: 'ProgressWorkout',
+  methods: {
+    cancelWorkout() {
+      this.$router.push('/');
+    }
+  },
   setup() {
     const workoutStore = useWorkoutStore();
+
     return {
       lifts: workoutStore.lifts,
       workout: workoutStore.workout,
