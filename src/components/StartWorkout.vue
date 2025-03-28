@@ -1,34 +1,38 @@
 <template>
+  <div>
+    <h1>Select your lifts for today</h1>
     <div>
-      <h1>Select your lifts for today</h1>
-      <div>
-        <label><input type="checkbox" value="Deadlift" v-model="lifts"> Deadlift</label>
-        <label><input type="checkbox" value="Squat" v-model="lifts"> Squat</label>
-        <label><input type="checkbox" value="Bench Press" v-model="lifts"> Bench Press</label>
-      </div>
-      <button @click="confirmWorkout">Confirm</button>
+      <label><input type="checkbox" value="Deadlift" v-model="selectedLifts"> Deadlift</label>
+      <label><input type="checkbox" value="Squat" v-model="selectedLifts"> Squat</label>
+      <label><input type="checkbox" value="Bench Press" v-model="selectedLifts"> Bench Press</label>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'StartWorkout',
-    data() {
-      return {
-        lifts: []
-      };
-    },
-    methods: {
-      confirmWorkout() {
-        if (this.lifts.length === 0) {
-          alert("Please select at least one lift.");
-          return;
-        }
-        console.log("Navigating to ProgressWorkout with lifts:", this.lifts);
-        const query = new URLSearchParams({ lifts: JSON.stringify(this.lifts) }).toString();
-        this.$router.push({ path: '/progressworkout', query: query });
+    <button @click="confirmWorkout">Confirm</button>
+  </div>
+</template>
+
+<script>
+import { useWorkoutStore } from '../stores/workout';
+
+export default {
+  name: 'StartWorkout',
+  data() {
+    return {
+      selectedLifts: [],
+    };
+  },
+  methods: {
+    confirmWorkout() {
+      if (this.selectedLifts.length === 0) {
+        alert("Please select at least one lift.");
+        return;
       }
+      
+      const workoutStore = useWorkoutStore();
+      workoutStore.setLifts(this.selectedLifts);
+      
+      console.log("Navigating to ProgressWorkout with lifts:", this.selectedLifts);
+      this.$router.push({ name: 'ProgressWorkout' });
     }
-  };
-  </script>
-  
+  },
+};
+</script>
