@@ -19,23 +19,27 @@
 </template>
 
 <script>
-import { useWorkoutStore } from '../stores/workout';
+import { useWorkoutStore } from '../stores/workout'
 
 export default {
   name: 'ProgressWorkout',
-  methods: {
-    cancelWorkout() {
-      this.$router.push('/');
-    }
-  },
   setup() {
-    const workoutStore = useWorkoutStore();
+    const workoutStore = useWorkoutStore()
 
     return {
       lifts: workoutStore.lifts,
       workout: workoutStore.workout,
-      completeWorkout: workoutStore.completeWorkout,
-    };
+      workoutStore
+    }
   },
-};
+  methods: {
+    cancelWorkout() {
+      this.$router.push('/')
+    },
+    completeWorkout() {
+      this.$router.push('/completion')
+      this.workoutStore.completeWorkout()
+    }
+  },
+}
 </script>

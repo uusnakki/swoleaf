@@ -3,24 +3,33 @@
     <h1>Completion Page</h1>
     <div v-for="lift in lifts" :key="lift">
       <h2>{{ lift }}</h2>
-      <!-- Stats and comparison logic -->
+      <p>Reps: {{ workout[lift].reps }}</p>
+      <p>Sets: {{ workout[lift].sets }}</p>
+      <p>Weight: {{ workout[lift].weight }}kg</p>
     </div>
+    <p>Workout Completed at: {{ timestamp }}</p>
     <button @click="finish">OK</button>
   </div>
 </template>
 
 <script>
+import { useWorkoutStore } from '../stores/workout'
+
 export default {
   name: 'CompletionPage',
-  data() {
+  setup() {
+    const workoutStore = useWorkoutStore()
+
     return {
-      lifts: this.$route.params.lifts || []
-    };
+      lifts: workoutStore.lifts,
+      workout: workoutStore.workout,
+      timestamp: workoutStore.timestamp
+    }
   },
   methods: {
     finish() {
-      this.$router.push('/');
+      this.$router.push('/')
     }
-  }
-};
+  },
+}
 </script>

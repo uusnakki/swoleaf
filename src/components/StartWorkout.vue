@@ -11,28 +11,28 @@
 </template>
 
 <script>
-import { useWorkoutStore } from '../stores/workout';
+import { useWorkoutStore } from '../stores/workout'
 
 export default {
   name: 'StartWorkout',
   data() {
     return {
       selectedLifts: [],
-    };
+    }
   },
   methods: {
     confirmWorkout() {
       if (this.selectedLifts.length === 0) {
-        alert("Please select at least one lift.");
-        return;
+        alert("Please select at least one lift.")
+        return
       }
       
-      const workoutStore = useWorkoutStore();
-      workoutStore.setLifts(this.selectedLifts);
+      const workoutStore = useWorkoutStore()
+      workoutStore.setLifts(this.selectedLifts)
       
-      console.log("Navigating to ProgressWorkout with lifts:", this.selectedLifts);
-      this.$router.push({ name: 'ProgressWorkout' });
+      console.log("Navigating to ProgressWorkout with lifts:", this.selectedLifts)
+      this.$router.push({ name: 'ProgressWorkout' })
     }
   },
-};
+}
 </script>

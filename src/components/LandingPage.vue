@@ -15,19 +15,19 @@ export default {
   data() {
     return {
       quote: 'Quote of the day'
-    };
+    }
   },
   methods: {
     startWorkout() {
-      this.$router.push('/startworkout');
+      this.$router.push('/startworkout')
     },
     viewStats() {
-      this.$router.push('/stats');
+      this.$router.push('/stats')
     }
   },
   mounted() {
     // Fetch quote from a remote source or use a predefined list
-    this.quote = quotes[Math.floor(Math.random() * quotes.length)].quote;
+    this.quote = quotes[Math.floor(Math.random() * quotes.length)].quote
   }
-};
+}
 </script>

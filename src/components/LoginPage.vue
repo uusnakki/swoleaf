@@ -11,14 +11,14 @@
       async loginWithGoogle() {
         const { error } = await this.$supabase.auth.signIn({
           provider: 'google'
-        });
+        })
         if (error) {
-          console.error('Error logging in:', error.message);
+          console.error('Error logging in:', error.message)
         } else {
-          this.$router.push('/');
+          this.$router.push('/')
         }
       }
     }
-  };
+  }
   </script>
   
