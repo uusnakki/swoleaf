@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@primeuix/themes": "^1.0.0",
+    "@supabase/supabase-js": "^2.49.4",
     "core-js": "^3.8.3",
     "pinia": "^3.0.1",
     "primevue": "^4.3.3",
