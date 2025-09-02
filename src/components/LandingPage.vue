@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Welcome to Swoleaf</h1>
+    <h1>Welcome to Swoleaf 🍃</h1>
     <button @click="startWorkout">Start a workout</button>
     <button @click="viewStats">Stats</button>
     <p>{{ quote }}</p>
