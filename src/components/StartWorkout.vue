@@ -6,16 +6,18 @@
       <label><input type="checkbox" value="Squat" v-model="selectedLifts"> Squat</label>
       <label><input type="checkbox" value="Bench Press" v-model="selectedLifts"> Bench Press</label>
     </div>
-    <button @click="confirmWorkout">Confirm</button>
-    <button @click="cancelWorkout">Cancel</button>
+    <PrimeVueButton @click="confirmWorkout" class="primaryButton">Confirm</PrimeVueButton>
+    <PrimeVueButton @click="cancelWorkout" class="primaryButton">Cancel</PrimeVueButton>
   </div>
 </template>
 
 <script>
 import { useWorkoutStore } from '../stores/workout'
+import PrimeVueButton from 'primevue/button'
 
 export default {
   name: 'StartWorkout',
+  components: { PrimeVueButton },
   data() {
     return {
       selectedLifts: [],

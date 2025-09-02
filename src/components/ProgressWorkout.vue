@@ -8,8 +8,8 @@
         <label>Sets: <input type="number" v-model="workout[lift].sets"></label>
         <label>Weight: <input type="number" v-model="workout[lift].weight"></label>
       </div>
-      <button @click="completeWorkout">Complete Workout</button>
-      <button @click="cancelWorkout">Cancel</button>
+      <PrimeVueButton @click="completeWorkout" class="primaryButton">Complete Workout</PrimeVueButton>
+      <PrimeVueButton @click="cancelWorkout" class="primaryButton">Cancel</PrimeVueButton>
     </div>
     <div v-else>
       <p>No lifts selected. Please go back and select lifts.</p>
@@ -20,9 +20,11 @@
 
 <script>
 import { useWorkoutStore } from '../stores/workout'
+import PrimeVueButton from 'primevue/button'
 
 export default {
   name: 'ProgressWorkout',
+  components: { PrimeVueButton },
   setup() {
     const workoutStore = useWorkoutStore()
 
