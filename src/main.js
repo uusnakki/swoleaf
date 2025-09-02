@@ -11,14 +11,14 @@ const app = createApp(App)
 
 const pinia = createPinia()
 
+app.use(pinia)
+app.use(router)
+
 app.use(PrimeVue, {
   theme: {
     preset: Aura
   }
 });
 
-app.use(pinia)
-app.use(router)
-app.use(PrimeVue, { ripple: true });
 
 app.mount('#app')
