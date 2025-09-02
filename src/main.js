@@ -17,5 +17,6 @@ app.use(PrimeVue, {
 
 app.use(pinia)
 app.use(router)
+app.use(PrimeVue, { ripple: true });
 
 app.mount('#app')

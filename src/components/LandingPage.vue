@@ -1,14 +1,15 @@
 <template>
   <div>
     <h1>Welcome to Swoleaf 🍃</h1>
-    <button @click="startWorkout">Start a workout</button>
-    <button @click="viewStats">Stats</button>
+    <Button @click="startWorkout">Start a workout</Button>  
+    <Button @click="viewStats">Stats</Button>
     <p>{{ quote }}</p>
   </div>
 </template>
 
 <script>
 import quotes from '../utilities/quotes.json'
+import Button from "primevue/button"
 
 export default {
   name: 'LandingPage',

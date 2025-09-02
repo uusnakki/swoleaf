@@ -7,6 +7,7 @@
       <label><input type="checkbox" value="Bench Press" v-model="selectedLifts"> Bench Press</label>
     </div>
     <button @click="confirmWorkout">Confirm</button>
+    <button @click="cancelWorkout">Cancel</button>
   </div>
 </template>
 
@@ -21,6 +22,9 @@ export default {
     }
   },
   methods: {
+    cancelWorkout() {
+      this.$router.push('/')
+    },
     confirmWorkout() {
       if (this.selectedLifts.length === 0) {
         alert("Please select at least one lift.")

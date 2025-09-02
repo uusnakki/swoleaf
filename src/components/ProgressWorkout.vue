@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     cancelWorkout() {
-      this.$router.push('/')
+      this.$router.push('/startworkout')
     },
     completeWorkout() {
       this.$router.push('/completion')
