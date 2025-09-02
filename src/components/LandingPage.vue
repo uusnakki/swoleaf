@@ -1,17 +1,19 @@
 <template>
   <div>
     <h1>Welcome to Swoleaf 🍃</h1>
-    <button @click="startWorkout">Start a workout</button>
-    <button @click="viewStats">Stats</button>
+    <PrimeVueButton @click="startWorkout" class="primaryButton">Start a workout</PrimeVueButton>  
+    <PrimeVueButton @click="viewStats" class="primaryButton">Stats</PrimeVueButton>
     <p>{{ quote }}</p>
   </div>
 </template>
 
 <script>
 import quotes from '../utilities/quotes.json'
+import PrimeVueButton from 'primevue/button'
 
 export default {
   name: 'LandingPage',
+  components: { PrimeVueButton },
   data() {
     return {
       quote: 'Quote of the day'

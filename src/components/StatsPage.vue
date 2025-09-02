@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Stats</h1>
-    <button @click="goHome">OK</button>
+    <PrimeVueButton @click="goHome" class="primaryButton">OK</PrimeVueButton>
     <div v-if="completedWorkouts.length > 0">
       <div v-for="(workout, index) in completedWorkouts" :key="index">
         <h2>Workout on {{ workout.timestamp }}</h2>
@@ -21,9 +21,11 @@
 
 <script>
 import { useWorkoutStore } from '../stores/workout'
+import PrimeVueButton from 'primevue/button'
 
 export default {
   name: 'StatsPage',
+  components: { PrimeVueButton },
   setup() {
     const workoutStore = useWorkoutStore()
 

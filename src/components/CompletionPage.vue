@@ -8,15 +8,17 @@
       <p>Weight: {{ workout[lift].weight }}kg</p>
     </div>
     <p>Workout Completed at: {{ timestamp }}</p>
-    <button @click="finish">OK</button>
+    <PrimeVueButton @click="finish" class="primaryButton">OK</PrimeVueButton>
   </div>
 </template>
 
 <script>
 import { useWorkoutStore } from '../stores/workout'
+import PrimeVueButton from 'primevue/button'
 
 export default {
   name: 'CompletionPage',
+  components: { PrimeVueButton },
   setup() {
     const workoutStore = useWorkoutStore()
 
