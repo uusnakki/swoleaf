@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import quotes from '@/utilities/quotes.json'
+import quotes from '../utilities/quotes.json'
 
 export default {
   name: 'LandingPage',
