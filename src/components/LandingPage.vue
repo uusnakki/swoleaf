@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Welcome to Swoleaf 🍃</h1>
-    <PrimeVueButton @click="startWorkout" class="primaryButton">Start a workout</PrimeVueButton>  
+    <h1>Welcome to Swoleaf 🍃</h1>  
     <PrimeVueButton @click="viewStats" class="primaryButton">Stats</PrimeVueButton>
+    <PrimeVueButton @click="startWorkout" class="primaryButton">Start a workout</PrimeVueButton>
     <p>{{ quote }}</p>
   </div>
 </template>
