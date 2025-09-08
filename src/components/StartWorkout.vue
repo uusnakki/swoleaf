@@ -1,21 +1,21 @@
 <template>
   <div>
     <h1>Select your lifts for today</h1>
-    <div>
+    <div class="groupLifts">
       <CheckboxGroup v-model="selectedLifts" name="ingredient" class="flex flex-wrap gap-4">
-            <div class="flex items-center gap-2">
+            <div class="lift">
                 <Checkbox inputId="deadlift" value="Deadlift" />
                 <label for="deadlift">Deadlift</label>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="lift">
                 <Checkbox inputId="squat" value="Squat" />
                 <label for="squat">Squat</label>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="lift">
                 <Checkbox inputId="bench" value="Bench" />
                 <label for="bench">BenchPress</label>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="lift">
                 <Checkbox inputId="pullup" value="Pull up" />
                 <label for="pullup">Pull up</label>
             </div>
@@ -63,3 +63,14 @@ export default {
   },
 }
 </script>
+
+<style>
+
+.groupLifts{
+  margin-bottom: 12px;
+}
+
+.lift {
+  margin-right: 20px;
+}
+</style>

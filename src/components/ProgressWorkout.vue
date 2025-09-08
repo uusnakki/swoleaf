@@ -4,9 +4,9 @@
     <div v-if="lifts.length > 0">
       <div v-for="lift in lifts" :key="lift">
         <h2>{{ lift }}</h2>
-        <label>Reps: <input type="number" v-model="workout[lift].reps"></label>
-        <label>Sets: <input type="number" v-model="workout[lift].sets"></label>
-        <label>Weight: <input type="number" v-model="workout[lift].weight"></label>
+        <label>Reps: <InputNumber v-model="workout[lift].reps" inputId="reps" showButtons :min="0" :max="1000"/></label>
+        <label>Sets: <InputNumber v-model="workout[lift].sets" inputId="sets" showButtons :min="0" :max="1000"/></label>
+        <label>Weight: <InputNumber v-model="workout[lift].weight" inputId="weight" showButtons :min="0" :max="1000"/></label>
       </div>
       <PrimeVueButton @click="cancelWorkout" class="primaryButton">Cancel</PrimeVueButton>
       <PrimeVueButton @click="completeWorkout" class="primaryButton">Complete Workout</PrimeVueButton>
@@ -21,10 +21,11 @@
 <script>
 import { useWorkoutStore } from '../stores/workout'
 import PrimeVueButton from 'primevue/button'
+import InputNumber from 'primevue/inputnumber'
 
 export default {
   name: 'ProgressWorkout',
-  components: { PrimeVueButton },
+  components: { PrimeVueButton, InputNumber },
   setup() {
     const workoutStore = useWorkoutStore()
 
