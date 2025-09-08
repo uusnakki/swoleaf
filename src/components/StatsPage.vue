@@ -12,6 +12,7 @@
           <p>Weight: {{ workout.workout[lift].weight }}kg</p>
         </div>
       </div>
+      <PrimeVueButton @click="deleteAllStats" class="primaryButton">Clear</PrimeVueButton>
     </div>
     <div v-else>
       <p>No workout stats available.</p>
@@ -22,23 +23,31 @@
 <script>
 import { useWorkoutStore } from '../stores/workout'
 import PrimeVueButton from 'primevue/button'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'StatsPage',
   components: { PrimeVueButton },
   setup() {
     const workoutStore = useWorkoutStore()
+    const router = useRouter()
 
     workoutStore.fetchCompletedWorkouts()
 
-    return {
-      completedWorkouts: workoutStore.completedWorkouts
+    const goHome = () => {
+      router.push('/')
     }
-  },
-  methods: {
-    goHome() {
-      this.$router.push('/')
-    },
+
+    const deleteAllStats = () => {
+      workoutStore.deleteAllStats()
+      router.push('/')
+    }
+
+    return {
+      completedWorkouts: workoutStore.completedWorkouts,
+      goHome,
+      deleteAllStats
+    }
   },
 }
 </script>

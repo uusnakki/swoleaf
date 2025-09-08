@@ -35,13 +35,22 @@ export const useWorkoutStore = defineStore('workout', {
       // Save completed workouts to localStorage
       localStorage.setItem('completedWorkouts', JSON.stringify(this.completedWorkouts))
 
-      console.log("Completed Workout:", completedWorkout)
     },
     fetchCompletedWorkouts() {
       const storedWorkouts = localStorage.getItem('completedWorkouts')
       if (storedWorkouts) {
         this.completedWorkouts = JSON.parse(storedWorkouts)
       }
+    },
+    deleteAllStats() {
+      // Reset state
+      this.completedWorkouts = []
+      this.lifts = []
+      this.workout = {}
+      this.timestamp = null
+
+      // Remove only our key from localStorage
+      localStorage.removeItem('completedWorkouts')
     }
   },
 })
