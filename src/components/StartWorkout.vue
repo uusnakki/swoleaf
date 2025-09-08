@@ -2,22 +2,43 @@
   <div>
     <h1>Select your lifts for today</h1>
     <div>
-      <label><input type="checkbox" value="Deadlift" v-model="selectedLifts"> Deadlift</label>
-      <label><input type="checkbox" value="Squat" v-model="selectedLifts"> Squat</label>
-      <label><input type="checkbox" value="Bench Press" v-model="selectedLifts"> Bench Press</label>
+      <CheckboxGroup v-model="selectedLifts" name="ingredient" class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="deadlift" value="Deadlift" />
+                <label for="deadlift">Deadlift</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="squat" value="Squat" />
+                <label for="squat">Squat</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="bench" value="Bench" />
+                <label for="bench">BenchPress</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="pullup" value="Pull up" />
+                <label for="pullup">Pull up</label>
+            </div>
+        </CheckboxGroup>
     </div>
-    <PrimeVueButton @click="confirmWorkout" class="primaryButton">Confirm</PrimeVueButton>
     <PrimeVueButton @click="cancelWorkout" class="primaryButton">Cancel</PrimeVueButton>
+    <PrimeVueButton @click="confirmWorkout" class="primaryButton">Confirm</PrimeVueButton>
   </div>
 </template>
 
 <script>
 import { useWorkoutStore } from '../stores/workout'
 import PrimeVueButton from 'primevue/button'
+import Checkbox from 'primevue/checkbox';
+import CheckboxGroup from 'primevue/checkboxgroup';
 
 export default {
   name: 'StartWorkout',
-  components: { PrimeVueButton },
+  components: {
+    PrimeVueButton,
+    Checkbox,
+    CheckboxGroup
+  },
   data() {
     return {
       selectedLifts: [],

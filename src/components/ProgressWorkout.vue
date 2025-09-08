@@ -8,8 +8,8 @@
         <label>Sets: <input type="number" v-model="workout[lift].sets"></label>
         <label>Weight: <input type="number" v-model="workout[lift].weight"></label>
       </div>
-      <PrimeVueButton @click="completeWorkout" class="primaryButton">Complete Workout</PrimeVueButton>
       <PrimeVueButton @click="cancelWorkout" class="primaryButton">Cancel</PrimeVueButton>
+      <PrimeVueButton @click="completeWorkout" class="primaryButton">Complete Workout</PrimeVueButton>
     </div>
     <div v-else>
       <p>No lifts selected. Please go back and select lifts.</p>
