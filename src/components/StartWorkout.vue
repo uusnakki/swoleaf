@@ -57,7 +57,6 @@ export default {
       const workoutStore = useWorkoutStore()
       workoutStore.setLifts(this.selectedLifts)
       
-      console.log("Navigating to ProgressWorkout with lifts:", this.selectedLifts)
       this.$router.push({ name: 'ProgressWorkout' })
     }
   },
