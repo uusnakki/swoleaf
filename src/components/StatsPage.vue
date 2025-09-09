@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>Stats</h1>
-    <PrimeVueButton @click="goHome" class="primaryButton">OK</PrimeVueButton>
+    <PrimeVueButton @click="deleteAllStats" class="primaryButton">Clear history</PrimeVueButton>
+     <PrimeVueButton @click="goHome" class="primaryButton">OK</PrimeVueButton>
     <div v-if="completedWorkouts.length > 0">
       <div v-for="(workout, index) in completedWorkouts" :key="index">
         <h2>Workout on {{ workout.timestamp }}</h2>
@@ -12,7 +13,6 @@
           <p>Weight: {{ workout.workout[lift].weight }}kg</p>
         </div>
       </div>
-      <PrimeVueButton @click="deleteAllStats" class="primaryButton">Clear</PrimeVueButton>
     </div>
     <div v-else>
       <p>No workout stats available.</p>
