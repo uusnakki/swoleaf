@@ -20,6 +20,8 @@ export const useWorkoutStore = defineStore('workout', {
           defaultWeight = 100
         } else if (lift === 'Bench Press') {
           defaultWeight = 70
+        } else if (lift === 'Pull up') {
+          defaultWeight = 0
         }
         this.workout[lift] = { reps: 5, sets: 5, weight: defaultWeight }
       })

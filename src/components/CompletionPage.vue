@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>Completion Page</h1>
+    <h2>Workout Completed at: {{ timestamp }}</h2>
     <div v-for="lift in lifts" :key="lift">
       <h2>{{ lift }}</h2>
       <p>Reps: {{ workout[lift].reps }}</p>
       <p>Sets: {{ workout[lift].sets }}</p>
       <p>Weight: {{ workout[lift].weight }}kg</p>
     </div>
-    <p>Workout Completed at: {{ timestamp }}</p>
     <PrimeVueButton @click="finish" class="primaryButton">OK</PrimeVueButton>
   </div>
 </template>
@@ -35,3 +35,10 @@ export default {
   },
 }
 </script>
+
+<style>
+
+p {
+  font-size: 20px;
+}
+</style>
